@@ -1,0 +1,59 @@
+@import "./_global.scss";
+
+.modal {
+  &-mask {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: hsla(0,0%,4%,.86);
+  }
+
+  &-container {
+    width: 520px;
+    min-height: 300px;
+    margin: 120px auto;
+    left: 50%;
+    margin-left: -260px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.2);
+    position: relative;
+    overflow: hidden;
+  }
+
+  &-header {
+    border-bottom: 1px solid hsla(210,8%,51%,.13);
+    padding: 16px;
+  }
+
+  &-title {
+    display: inline-block;
+  }
+
+  &-close {
+    position: absolute;
+    right: 10px;
+    font-size: 20px;
+    font-style: normal;
+  }
+
+  &-body {
+    padding: 20px;
+  }
+
+  &-footer {
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    display: flex;
+    position: absolute;
+    border-top: 1px solid hsla(210,8%,51%,.13);
+    padding: 16px;
+    bottom: 0;
+    button {
+      margin-right: 10px;
+    }
+  }
+}
