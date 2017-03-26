@@ -9,14 +9,14 @@ import _ from './util'
 
 export default class Modal extends Component {
   constructor(options) {
-    super()
+    super(options.$id)
     this.$options = {}
     Object.assign(this.$options, options)
     this.init()
   }
 
   createView() {
-    let dom = Ele("div", { id: this.$options.id, class: "modal-mask" }, [
+    this.$view = Ele("div", { id: this.$options.id, class: "modal-mask" }, [
       Ele("div", { class: "modal-container" }, [
         Ele("div", { class: "modal-header" }, [
           Ele("h2", { class: "modal-title" }, "info"),
@@ -29,7 +29,6 @@ export default class Modal extends Component {
         ])
       ])
     ]).render()
-    document.body.appendChild(dom)
   }
 
   open() {
@@ -49,17 +48,17 @@ export default class Modal extends Component {
   setContent() {
     let self = this;
     const textNode = document.createTextNode(self.$options.content);
-    this.$modalView.querySelector(".modal-body").appendChild(textNode);
+    this.$view.querySelector(".modal-body").appendChild(textNode);
   }
 
   init() {
     this.createView()
-    this.$modalView = document.getElementById(this.$options.id)
+    this.render(document.body)
     this.$closeBtn = document.querySelector(".modal-close")
     this.$cancelBtn = document.querySelector(".modal-cancel")
     this.$confirmBtn = document.querySelector(".modal-primary")
 
-    this.$style = this.$modalView.style
+    this.$style = this.$view.style
     this.setContent()
     let self = this
     this.close()

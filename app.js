@@ -1,4 +1,4 @@
-import Modal from './js/modal'
+import Modal from './js/Modal'
 import './css/modal.scss'
 
 const modal = new Modal({
@@ -12,6 +12,7 @@ const modal = new Modal({
   }
 })
 
+console.log(modal)
 const modalBtn = document.getElementById('modalBtn')
 modalBtn.addEventListener('click', ()=>{
   modal.toggle()

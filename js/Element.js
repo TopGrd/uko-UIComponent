@@ -1,3 +1,10 @@
+/**
+ * @Date:   2017-03-24T17:01:54+08:00
+ * @Email:  topgrd@outlook.com
+ * @Filename: Element.js
+ * @Last modified time: 2017-03-26T21:01:26+08:00
+ */
+
 class Element {
   constructor(tag, props, children) {
     this.tag = tag;
