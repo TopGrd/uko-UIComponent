@@ -1,0 +1,30 @@
+.tab {
+  &-container {
+    width: auto;
+    padding: 20px;
+  }
+  &-list {
+    display: flex;
+    justify-content: flex-start;
+    flex: 0 1 auto;
+  }
+  &-header a{
+    align-items: center;
+    border-bottom: 1px solid $grey;
+    padding: 6px 12px;
+    margin-bottom: -1px;
+    display: flex;
+    justify-content: center;
+    line-height: 24px;
+  }
+  &-panel {
+    display: none;
+  }
+  &-active {
+    a {
+      color: $blue;
+      border-bottom: 1px solid $blue;
+    }
+    display: block;
+  }
+}

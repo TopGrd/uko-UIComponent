@@ -18,3 +18,17 @@ const modal = new Modal({
   }
 })
 ```
+### Tab  
+```js
+  const tab = new Tab({
+    id: 'tabs',
+    // 设置当前展示的tab
+    activeIndex: 2,
+    // 主题 normal, card 默认 normal
+    theme: 'card',
+    // 点击tab事件 activeIndex
+    tabClick(activeIndex) {
+      console.log(activeIndex);
+    }
+  })
+```

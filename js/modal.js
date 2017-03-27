@@ -9,9 +9,7 @@ import _ from './util'
 
 export default class Modal extends Component {
   constructor(options) {
-    super(options.$id)
-    this.$options = {}
-    Object.assign(this.$options, options)
+    super(options)
     this.init()
   }
 

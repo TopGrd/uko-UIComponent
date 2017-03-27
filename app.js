@@ -1,5 +1,6 @@
 import Modal from './js/Modal'
-import './css/modal.scss'
+import Tab from './js/Tab'
+import './css/main.scss'
 
 const modal = new Modal({
   id: 'modal',
@@ -17,3 +18,12 @@ const modalBtn = document.getElementById('modalBtn')
 modalBtn.addEventListener('click', ()=>{
   modal.toggle()
 }, false)
+
+const tab = new Tab({
+  id: 'tabs',
+  activeIndex: 2,
+  theme: 'card',
+  tabClick(tab) {
+    console.log(tab);
+  }
+})

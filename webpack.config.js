@@ -1,6 +1,7 @@
 const path = require("path");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 module.exports = {
   entry: "./app.js",
@@ -16,7 +17,7 @@ module.exports = {
         enforce: "pre",
         use: [
           {
-            loader: "babel-loader",
+            loader: "babel-loader?sourceMap",
             options: {
               presets: ["env"]
             }
@@ -45,9 +46,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html'
+    }),
+    new OpenBrowserPlugin({
+      url: 'http://localhost:8080'
     })
   ],
-  devtool: "eval-source-map",
+  devtool: "source-map",
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),
     compress: true,

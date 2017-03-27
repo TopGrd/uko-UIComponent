@@ -6,13 +6,13 @@
 
 import _ from 'util'
 export default class Component {
-  constructor(id) {
+  constructor(options) {
     this.$view = null
-    this.$id = id
+    this.$options = {}
+    Object.assign(this.$options, options)
   }
 
   render(target){
-    // console.log(this.$view)
     target.appendChild(this.$view)
   }
 }
