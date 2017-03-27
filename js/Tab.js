@@ -1,5 +1,11 @@
+/**
+ * @Date:   2017-03-27T11:13:17+08:00
+ * @Email:  topgrd@outlook.com
+ * @Filename: Tab.js
+ * @Last modified time: 2017-03-27T19:14:11+08:00
+ */
+
 import Component from "./Component"
-import Ele from "./Element"
 import _ from './util'
 
 export default class Tabs extends Component {
@@ -10,7 +16,7 @@ export default class Tabs extends Component {
     this.$view = _.$('#tabs')
     this.$list = _.$$('.tab-list li')
     this.$panel = _.$$('.tab-body div')
-    this.$tabClick = this.$options.tabClick;
+    this.$tabClick = this.$options.tabClick
     this.init()
   }
 
