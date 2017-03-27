@@ -19,6 +19,26 @@ const modal = new Modal({
 })
 ```
 ### Tab  
+```html
+  <div id="tabs" class="tab-container">
+    <ul class="tab-list">
+      <li class="tab-header">
+        <a href="javascript:void(0)">tab1</a>
+      </li>
+      <li class="tab-header">
+        <a href="javascript:void(0)">tab2</a>
+      </li>
+      <li class="tab-header">
+        <a href="javascript:void(0)">tab3</a>
+      </li>
+    </ul>
+    <div class="tab-body">
+      <div class="tab-panel">food1</div>
+      <div class="tab-panel">food2</div>
+      <div class="tab-panel">food3</div>
+    </div>
+  </div>
+```
 ```js
   const tab = new Tab({
     id: 'tabs',
