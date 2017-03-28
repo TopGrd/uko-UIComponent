@@ -11,14 +11,29 @@
   &-header a{
     align-items: center;
     border-bottom: 1px solid $grey;
-    padding: 6px 12px;
+    padding: 0.5em 1em;
+    vertical-align: top;
     margin-bottom: -1px;
     display: flex;
     justify-content: center;
+    vertical-align: top;
     line-height: 24px;
+    &:hover {
+      border-bottom-color: #363636;
+      color: #363636;
+    }
+    &.card {
+      border: 1px solid #dbdbdb;
+    }
   }
   &-panel {
     display: none;
+    user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    -webkit-user-select: text;
+    width: 100%;
+    flex: 1 1;
   }
   &-active {
     a {
@@ -26,5 +41,12 @@
       border-bottom: 1px solid $blue;
     }
     display: block;
+  }
+  &-body {
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    margin: 10px;
+    flex: 1 1;
   }
 }

@@ -20,7 +20,8 @@ export default class Tabs extends Component {
     this.init()
   }
 
-  switchTab() {
+  switchTab(e) {
+    e.preventDefault()
     const self = this;
     let clickNode = event.target.parentElement
     let list = _.$$('.tab-list li')
@@ -33,6 +34,10 @@ export default class Tabs extends Component {
         return index
       }
     })
+    
+    if (this.$activeIndex === this.$prevIndex) {
+      return
+    }
     _.addClass(this.$list[self.$activeIndex], 'tab-active')
     _.removeClass(this.$list[self.$prevIndex], 'tab-active')
     _.addClass(this.$panel[self.$activeIndex], 'tab-active')
@@ -56,7 +61,6 @@ export default class Tabs extends Component {
     this.setActiveTab()
     this.initEvents()
     if (this.$tabClick) {
-      debugger
       this.tabClick()
     }
   }

@@ -3,6 +3,7 @@
  * @Email:  topgrd@outlook.com
  * @Last modified time: 2017-03-22T14:02:13+08:00
  */
+
 import Component from "./Component"
 import Ele from "./Element"
 import _ from './util'
@@ -44,9 +45,9 @@ export default class Modal extends Component {
   }
 
   setContent() {
-    let self = this;
-    const textNode = document.createTextNode(self.$options.content);
-    this.$view.querySelector(".modal-body").appendChild(textNode);
+    let self = this
+    const textNode = document.createTextNode(self.$options.content)
+    this.$view.querySelector(".modal-body").appendChild(textNode)
   }
 
   init() {

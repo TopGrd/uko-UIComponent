@@ -1,0 +1,67 @@
+$mq-responsive: true;
+$small: 768px;
+$medium: 960px;
+$normal: 1120px;
+$large: 1360px;
+$col: 24;
+$mq-breakpoints: (
+    mobile:  769px,
+    tablet: 1000px,
+    desktop: 1192px,
+    wide:    1384px
+);
+
+$mq-static-breakpoint: mobile;
+
+$mq-show-breakpoints: (mobile, tablet, desktop, wide);
+@import "./_mq.scss";
+
+@mixin grid-create {
+  @for $i from 1 through $col {
+    .col-#{$i} {
+      width: percentage($i/24);
+
+    }
+  }
+}
+
+@mixin offset {
+  @for $i from 1 through $col {
+    .offset-#{$i} {
+      margin-left: percentage($i/24)
+    }
+  }
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 0.75rem;
+  margin-left: auto;
+  margin-right: auto;
+  &:not(:last-child) {
+    margin-bottom: 0.75rem;
+  }
+  @include grid-create;
+  @include offset;
+  @include mq($from: mobile, $until: tablet) {
+    max-width: $small;
+    width: $small;
+  }
+  @include mq($from: tablet, $until: desktop) {
+    max-width: $medium;
+    width: $medium;
+  }
+  @include mq($from: desktop, $until: wide) {
+    max-width: $normal;
+    width: $normal;
+  }
+  @include mq($from: wide) {
+    max-width: $large;
+    width: $large;
+  }
+}
+.flex-row {
+  flex-direction: row;
+}
