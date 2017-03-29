@@ -1,3 +1,4 @@
+import _ from './js/util'
 import Modal from './js/Modal'
 import Tab from './js/Tab'
 import './css/main.scss'
@@ -22,8 +23,10 @@ modalBtn.addEventListener('click', ()=>{
 const tab = new Tab({
   id: 'tabs',
   activeIndex: 2,
-  theme: 'card',
+  theme: 'normal',
   tabClick(tab) {
-    console.log(tab);
+    console.log(tab)
   }
 })
+tab.$theme = 'card'
+_.bindEvent(document.querySelector('#tabTheme'), tab.changeTheme.bind(tab))

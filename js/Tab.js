@@ -14,19 +14,33 @@ export default class Tabs extends Component {
     this.$activeIndex = options.activeIndex || 0
     this.$prevIndex = 0
     this.$view = _.$('#tabs')
-    this.$list = _.$$('.tab-list li')
-    this.$panel = _.$$('.tab-body div')
+    this.$list = _.toArray(_.$$('.tab-list li'))
+    this.$panel = _.toArray(_.$$('.tab-body div'))
     this.$tabClick = this.$options.tabClick
+    this.$theme = this.$options.theme || 'normal'
     this.init()
+  }
+
+  changeTheme() {
+    const themes = {
+      'normal': 'tab-normal',
+      'card': 'tab-card'
+    }
+    let removeClass = '';
+    let className = themes[this.$theme]
+    this.$list.map(item => {
+      _.replaceClass(item.querySelector('a'), className)
+      return item
+    })
   }
 
   switchTab(e) {
     e.preventDefault()
-    const self = this;
+    const self = this
     let clickNode = event.target.parentElement
     let list = _.$$('.tab-list li')
     let panel = _.$$('.tab-body div')
-    list = Array.from(list)
+    list = _.toArray(list)
     const item = list.map((li, index) => {
       if (li === clickNode) {
         self.$prevIndex = self.$activeIndex
@@ -34,7 +48,7 @@ export default class Tabs extends Component {
         return index
       }
     })
-    
+
     if (this.$activeIndex === this.$prevIndex) {
       return
     }
@@ -58,6 +72,7 @@ export default class Tabs extends Component {
   }
 
   init() {
+    this.changeTheme()
     this.setActiveTab()
     this.initEvents()
     if (this.$tabClick) {

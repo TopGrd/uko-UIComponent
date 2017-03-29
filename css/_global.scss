@@ -68,3 +68,10 @@ button {
   border-color: transparent;
   color: #fff;
 }
+
+.title {
+  font-size: 2.5rem;
+}
+.title:not(:last-child) {
+    margin-bottom: 1.5rem;
+}

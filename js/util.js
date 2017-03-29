@@ -48,10 +48,17 @@ const util = {
 
     if (removeIndex > -1) {
       classes.splice(removeIndex, 1)
-      target.className = classes.join(' ');
+      target.className = classes.join(' ')
     } else {
-      console.log(`${target} can not find ${className}`);
+      console.log(`${target} can not find ${className}`)
     }
+  },
+  replaceClass(target, className) {
+    target.className = '';
+    this.addClass(target, className)
+  },
+  toArray(arr) {
+    return Array.prototype.slice.call(arr, 0)
   }
 }
 
