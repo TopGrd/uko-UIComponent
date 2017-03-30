@@ -6,6 +6,7 @@
     right: 0;
     top: 0;
     background-color: hsla(0,0%,4%,.86);
+    display: none;
   }
 
   &-container {
@@ -53,5 +54,8 @@
     button {
       margin-right: 10px;
     }
+  }
+  &-open {
+    display: block;
   }
 }

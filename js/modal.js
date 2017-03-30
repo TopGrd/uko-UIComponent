@@ -6,6 +6,7 @@
 
 import Component from "./Component"
 import Ele from "./Element"
+import $ from '../vendor/ukoQuery'
 import _ from './util'
 
 export default class Modal extends Component {
@@ -31,51 +32,47 @@ export default class Modal extends Component {
   }
 
   open() {
-    this.$style.display = "block"
+    this.$view.addClass('modal-open')
   }
 
   close() {
-    this.$style.display = "none"
+    this.$view.removeClass('modal-open')
   }
 
   toggle() {
-    this.$style.display === "block"
-      ? (this.$style.display = "none")
-      : (this.$style.display = "block")
+    this.$view.toggleClass('modal-open')
   }
 
   setContent() {
-    let self = this
-    const textNode = document.createTextNode(self.$options.content)
-    this.$view.querySelector(".modal-body").appendChild(textNode)
+    this.$view.find('.modal-body').text(this.$options.content)
   }
 
   init() {
     this.createView()
     this.render(document.body)
-    this.$closeBtn = document.querySelector(".modal-close")
-    this.$cancelBtn = document.querySelector(".modal-cancel")
-    this.$confirmBtn = document.querySelector(".modal-primary")
+    this.$view = $('#' + this.$options.id)
+    this.$closeBtn = $(".modal-close")
+    this.$cancelBtn = $(".modal-cancel")
+    this.$confirmBtn = $(".modal-primary")
 
     this.$style = this.$view.style
     this.setContent()
     let self = this
-    this.close()
-    _.bindEvent(self.$closeBtn, () => {
+    _.bindEvent(self.$closeBtn.dom, () => {
       self.close()
       if (_.exist(self.$options.cancel)) {
         self.$options.cancel()
       }
     })
 
-    _.bindEvent(self.$cancelBtn, () => {
+    _.bindEvent(self.$cancelBtn.dom, () => {
       self.close()
       if (_.exist(self.$options.cancel)) {
         self.$options.cancel()
       }
     })
 
-    _.bindEvent(self.$confirmBtn, () => {
+    _.bindEvent(self.$confirmBtn.dom, () => {
       self.close()
       if (_.exist(self.$options.confirm)) {
         self.$options.confirm()

@@ -23,40 +23,6 @@ const util = {
   bindEvent(context, handler) {
     context.addEventListener('click', handler, false)
   },
-  $(selector) {
-    return document.querySelector(selector)
-  },
-  $$(selector) {
-    return document.querySelectorAll(selector)
-  },
-  addClass(target, classNames) {
-    let classes = target.className.split(' ')
-    let have = classes.findIndex((item, index) => {
-      return item === classNames
-    })
-    if (have && have > -1) {
-      return
-    } else {
-      target.className += ' ' + classNames
-    }
-  },
-  removeClass(target, className) {
-    let classes = target.className.split(' ')
-    let removeIndex = classes.findIndex((item, index) => {
-      return item === className
-    })
-
-    if (removeIndex > -1) {
-      classes.splice(removeIndex, 1)
-      target.className = classes.join(' ')
-    } else {
-      console.log(`${target} can not find ${className}`)
-    }
-  },
-  replaceClass(target, className) {
-    target.className = '';
-    this.addClass(target, className)
-  },
   toArray(arr) {
     return Array.prototype.slice.call(arr, 0)
   }

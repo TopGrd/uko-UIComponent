@@ -13,7 +13,7 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        include: [path.resolve(__dirname, "js")],
+        include: [path.resolve(__dirname, "js"), path.resolve(__dirname, "vendor")],
         enforce: "pre",
         use: [
           {
